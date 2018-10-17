@@ -38,15 +38,17 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
-    capabilities: [{
+    capabilities: [
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
-        maxInstances: 5,
+        //maxInstances: 5,
         //
-        browserName: 'chrome',
+        {browserName: 'firefox', platform: 'Windows 10', version: '60'},
+        {browserName: 'chrome', platform: 'Windows 8', version: '62'},
+        {browserName: 'internet explorer', platform: 'Windows 7', version: '9'}
         
-    }],
+    ],
     //
     // ===================
     // Test Configurations
@@ -118,21 +120,7 @@ exports.config = {
     key: 'bf4007d4-cd27-44bc-9d3d-452720561b47',
     sauceConnect: true,
     //services: ['selenium-standalone', 'appium'],
-/*
-    appium: {
-        args: {
-            address: '127.0.0.1',
-            commandTimeout: '7200',
-            sessionOverride: true,
-            debugLogSpacing: true,
-            platformVersion: '9.1',
-            platformName: 'iOS',
-            showIosLog: true,
-            deviceName: 'iPhone 6',
-            nativeInstrumentsLib: true,
-            isolateSimDevice: true
-        }
-      },*/
+
     //
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
